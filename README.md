@@ -3,4 +3,6 @@ This project aims to fix and enhance the existing PageRank implementation within
 
 PageRank.py is the code used in the pagerank algorithm 
 
-CodeOutpUT is the 
+CodeOutput is the output for all tasks and parts
+
+

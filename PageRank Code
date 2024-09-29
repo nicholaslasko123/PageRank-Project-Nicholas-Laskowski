@@ -113,17 +113,17 @@ class WebGraph():
     def power_method(self, v=None, x0=None, alpha=0.85, max_iterations=1000, epsilon=1e-6):
         '''
         This function implements the power method for computing the pagerank.
-
+        
         The self.P variable stores the $P$ matrix.
         You will have to compute the $a$ vector and implement Equation 5.1 from "Deeper Inside Pagerank."
         '''
         with torch.no_grad():
             n = self.P.shape[0]
-            # compute the a vector
-            nondangling_node = torch.sparse.sum(self.P,1).indices()
+
+            nondanglingNode = torch.sparse.sum(self.P,1).indices()
             a = torch.ones([n,1])
-            a[nondangling_node] = 0
-            # create variables if none given
+            a[nondanglingNode] = 0
+           
             if v is None:
                 v = torch.Tensor([1/n]*n)
                 v = torch.unsqueeze(v,1)
